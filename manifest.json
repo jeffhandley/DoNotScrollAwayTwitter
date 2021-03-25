@@ -1,0 +1,18 @@
+{
+  "name": "Do not scroll away, Twitter",
+  "version": "0.1.0.0",
+  "manifest_version": 2,
+  "description": "Prevent Twitter from scrolling away the visible tweets.",
+  "icons": {
+    "16": "icons/noscroll-16x16.png",
+    "32": "icons/noscroll-32x32.png",
+    "48": "icons/noscroll-48x48.png",
+    "128": "icons/noscroll-128x128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["noscroll.js"]
+    }
+  ]
+}
