@@ -17,11 +17,14 @@ let willNotScrollAway = false;
                 var emojiButton = popupButtons[2];
 
                 if (emojiButton && typeof emojiButton.getClientRects === 'function' && typeof emojiButton.scrollIntoView === 'function') {
-                    var emojiButtonTop = emojiButton.getClientRects()[0].top;
+                    var firstTweet = emojiButton.getClientRects()[0].top + 8;
 
-                    if (window.scrollY < emojiButtonTop) {
-                        emojiButton.scrollIntoView();
-                        window.scrollBy(0, 8);
+                    if (window.scrollY < firstTweet) {
+                        window.scrollTo({
+                            left: window.scrollX,
+                            top: firstTweet,
+                            behavior: 'smooth'
+                        });
                     }
                 }
             }
