@@ -16,12 +16,11 @@ let willNotScrollAway = false;
             if (popupButtons && popupButtons.length > 2) {
                 var emojiButton = popupButtons[2];
 
-                if (emojiButton && typeof emojiButton.getClientRects === 'function' && typeof emojiButton.scrollIntoView === 'function') {
-                    var firstTweet = emojiButton.getClientRects()[0].top + 8;
+                if (emojiButton && typeof emojiButton.getBoundingClientRect === 'function' && typeof emojiButton.scrollIntoView === 'function') {
+                    var firstTweet = emojiButton.getBoundingClientRect().top + 8;
 
-                    if (window.scrollY < firstTweet) {
-                        window.scrollTo({
-                            left: window.scrollX,
+                    if (firstTweet > 0) {
+                        window.scrollBy({
                             top: firstTweet,
                             behavior: 'smooth'
                         });
